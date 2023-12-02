@@ -1,0 +1,383 @@
+/* GENERAL CSS */
+html{
+    background-color: rgb(251, 255, 255);
+    width: 100%;
+    margin: 0px;
+}
+* , body {
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+}
+.flex-just-center{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* HEADING CSS */
+.first{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    width: 100%;
+}
+.heading{
+    color: #0095B6;
+    letter-spacing: 0.5rem;
+    font-size: 3rem;
+    text-align: center;
+}
+.logo{
+    width: 150px;
+    height: 140px;
+    margin-left: 20px;
+}
+
+
+/* NAV CSS */
+.sec{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    background-color: #0095B6;
+    height: 60px;
+    width: 95vw;
+}
+a{
+    text-decoration: none;
+    color: rgb(251, 255, 255);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.active{
+    color: #10687c;
+    pointer-events: none;
+   cursor: default;
+}
+.sec a{
+    flex-grow: 1;
+}
+
+/* MOVING IMAGES */
+.mySlides{
+    width: 95vw;
+    height: 600px;
+}
+
+
+/* CONTENT OUR STORY */
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;  
+}
+.extra{
+    /* height: 400px; */
+    padding: 10px;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+.sub-head{
+    font-size: 5rem;
+    letter-spacing: 0.25rem;
+    color: #0095B6;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.justify{
+    text-align: justify;
+}   
+
+/* CONTACT FORM N CONTACT */
+.form{
+    background-image: url("./images/handshake.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+label , input{
+    margin: 20px;
+    font-size: 1.5rem;
+    height: 40px;
+}
+input{
+    width: 400px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+}
+textarea{
+    margin: 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 8px;
+    background: transparent;
+    color: white;
+}
+.container{
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+}
+label{
+    color:whitesmoke ;
+    font-weight: bold;
+}
+.sub{
+    width: 200px;
+    height: 40px;
+    background-color: green;
+    color: white;
+    border: 5px solid green;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.addr{
+    text-align: center;
+    font-style: italic;
+}
+
+
+
+/* FOOTER */
+.foot{
+    display: flex;
+    background-color: #0095B6;
+    width: 100%;
+    /* height: 100px; */
+}
+.social-icons{
+	padding:30px;
+	background-color:#0095B6;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: center;
+}
+.icon{
+    text-align: left;
+}
+
+.social-icons a{
+	color:#fff;
+  line-height:30px;
+  font-size:30px;
+  margin: 0 5px;
+  text-decoration:none;
+  
+}
+.social-icons a i{
+	line-height:30px;
+  font-size:30px;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1); 
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1); 
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 200ms ease-in;
+  transform: scale(1);
+}
+.social-icons a:hover i{
+  box-shadow: 0px 0px 150px #000000;
+  z-index: 2;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.5);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.5);   
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.5);
+  transition: all 200ms ease-in;
+  transform: scale(1.5);
+}
+.footer-message{
+    color: white;
+    text-align: center;
+}
+.message{
+    flex-grow: 4;
+    flex-shrink: 0;
+    align-items: center;
+    align-self: center;
+}
+.broch{
+    padding: 30px;
+    align-items: center;
+    align-self: center;
+}
+.download-button{
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: white;
+    color: #0095B6;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 70px;
+    padding: 5px;
+}
+
+/* Product CSS */
+.card{
+    padding: 20px;
+    width: 50%;
+    background-color: white;
+    border: 1px solid gray;
+}
+.card h2{
+    color: #0095B6;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+    text-align: justify;
+}
+.pro{
+    height: 400px;
+    width: 500px;
+}
+.des{
+    color: #10687c;
+    font-size: 1.5rem;
+    text-align: left;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 20px 0;
+}
+.font-blue{
+    color: #10687c;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+    .heading{
+        font-size: 1.5rem;
+        letter-spacing: 0.25rem;
+    }
+    .logo{
+        width: 70px;
+        height: 50px;
+    }
+    .sec{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr;
+        grid-gap: 10px;
+        /* background-color: white; */
+        border: none;
+        border-radius: 0px;
+        height: 120px;
+        text-align: center;
+        width: 100vw;
+        
+    }
+    .sec div{
+        background-color: #0095B6;
+        height: 100%;
+    }
+    .mySlides{
+        width: 100vw;
+        height: 250px;
+    }
+    label , input{
+        font-size: 0.8rem;
+        font-weight: bold;
+    } 
+    input{
+        width: 200px;
+    }
+    textarea{
+        font-size: 0.8rem;
+    }
+    .sub{
+        width: 150px;
+        height: 30px;
+    }
+    .card{
+        width: 80%;
+    }
+    .card h2{
+        color: #0095B6;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.1rem;
+    }
+    .content{
+        display: block;
+        height: auto;
+    }
+    .extra{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .form{
+        width: 95vw;
+    }
+    .des{
+        text-align: center;
+        font-size: 1rem;
+    }
+    .social-icons{
+        padding:10px;
+        margin: auto auto;
+        text-align: center;
+    }
+    .broch{
+        padding: 10px;
+        text-align: center;
+    }
+    .message{
+        order: 4;
+    }
+    .foot{
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        line-height: 40px;
+    }
+    .mob{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .pro{
+        height: 330px;
+        width: 360px;
+    }
+    .addr{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        /* padding-top: 40px;
+        padding-bottom: 40px; */
+        padding: 40px;
+    }
+    .sub-head{
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .heading{
+        font-size: 1rem;
+        letter-spacing: 0.25rem;
+    }
+    label , input{
+        font-size: 0.5rem;
+    } 
+    input{
+        width: 150px;
+    }
+    textarea{
+        font-size: 0.5rem;
+    }
+    .sub-head{
+        font-size: 3rem;
+    }
+}
