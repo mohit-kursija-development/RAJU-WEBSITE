@@ -39,37 +39,39 @@ html{
 
 
 /* NAV CSS */
-.sec{
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
+.bg-blue{
     background-color: #0095B6;
-    height: 60px;
-    width: 95vw;
 }
-a{
-    text-decoration: none;
-    color: rgb(251, 255, 255);
-    font-size: 1.5rem;
-    font-weight: bold;
+.navbar {
+    background-color: #007BFF; /* Blue background */
 }
-.active{
-    color: #10687c;
+
+.navbar-nav {
+    display: flex; /* Enable flexbox for navbar items */
+    justify-content: space-evenly; /* Space out navbar items evenly */
+    width: 100%; /* Full width of the navbar */
+}
+
+.navbar-nav .nav-item {
+    flex-grow: 1; /* Allow each item to grow equally */
+    text-align: center; /* Center-align the text inside each item */
+}
+
+.navbar-nav .nav-link {
+    color: white !important; /* White color for links */
+    font-size: 1.5rem; /* Larger text size for links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #10687c; /* Change color on hover */
+}
+
+.navbar-nav .active {
+    color: #10687c; /* Active link color */
     pointer-events: none;
-   cursor: default;
+    cursor: default;
 }
-.sec a{
-    flex-grow: 1;
-}
-
-/* MOVING IMAGES */
-.mySlides{
-    width: 95vw;
-    height: 600px;
-}
-
-
 /* CONTENT OUR STORY */
 .content{
     display: grid;
@@ -100,6 +102,22 @@ a{
     background-repeat: no-repeat, repeat;
     background-position: center bottom;
     background-size: cover;
+}
+.grid-item {
+    color: blue;
+    display: flex;
+    flex-direction: row;
+    height: 330px;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.cust-cent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+    font-size: 1.5rem;
+    text-align: justify;
 }
 label , input{
     margin: 20px;
@@ -143,7 +161,9 @@ label{
     text-align: center;
     font-style: italic;
 }
-
+.sub{
+    cursor: grab/pointer;
+}
 
 
 /* FOOTER */
@@ -236,6 +256,10 @@ label{
     letter-spacing: 0.1rem;
     text-align: justify;
 }
+.card h1{
+    color: #0095B6;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 .pro{
     height: 400px;
     width: 500px;
@@ -255,6 +279,39 @@ table{
     font-weight: 500;
 }
 
+/* Founder Page CSS */
+.pg-head{
+    color: #0095B6;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 40px 0px;
+    font-size: 2.5rem;
+}
+.pawa-img{
+    height: 500px;
+}
+.img-pawa-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.found-head{
+    color: #0095B6;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 40px 0px;
+    font-size: 2.5rem;
+}
+.found-intro{
+    color: #0095B6;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: justify;
+    margin: 40px 0px;
+    font-size: 1.5rem;
+}
+
+
+/* Mobile / Tab CSS*/
 @media only screen and (max-width: 600px) {
     .heading{
         font-size: 1.5rem;
@@ -360,6 +417,14 @@ table{
     }
     .sub-head{
         font-size: 3.5rem;
+    }
+    .grid-item{
+        flex-direction: row;
+        /* align-items: center; */
+        /* height: 250px; */
+    }
+    .pawa-img{
+        height: auto;
     }
 }
 

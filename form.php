@@ -23,6 +23,7 @@ try{
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $query = $_POST["query"];
+    if ($phone != "1234567890" && $phone != "9876543210" ){
 
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'bom1plzcpnl503634.prod.bom1.secureserver.net';                     //Set the SMTP server to send through
@@ -53,6 +54,7 @@ try{
 
 
         header("refresh:5; url=index.html");
+    }
     }
 
 }
