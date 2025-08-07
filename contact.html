@@ -12,6 +12,7 @@
     <link rel="icon" type="image/x-icon" href="resources/images/logo.ico">
     <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6276193172583451"-->
     <!-- crossorigin="anonymous"></script>-->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <br>
@@ -49,20 +50,20 @@
     <br>
     <div class="flex-just-center flex-center">
         <div class="content">
-            <div class="form flex-center flex-just-center" >
-                <form action="form.php" method="post">
+            <div class="form flex-center flex-just-center">
+                <form id="callbackForm" action="https://formsubmit.co/meratimepass2@gmail.com" method="POST">
                     <div class="container">
-                    <div class="flex-center flex-just-center"><label class="lab">Name</label></div>
-                    <div class="size"><input type="text" name="name" required class="inp" placeholder="Enter your Name"></div>
+                        <div class="flex-center flex-just-center"><label class="lab">Name</label></div>
+                        <div class="size"><input type="text" name="name" required class="inp" placeholder="Enter your Name"></div>
 
-                    <div class="flex-center flex-just-center"><label class="lab">Email</label></div>
-                    <div class="size"><input type="email" name="email" required class="inp" placeholder="Enter your email"></div>
+                        <div class="flex-center flex-just-center"><label class="lab">Email</label></div>
+                        <div class="size"><input type="email" name="email" required class="inp" placeholder="Enter your email"></div>
 
-                    <div class="flex-center flex-just-center"><label class="lab">Phone</label></div>
-                    <div class="size"><input type="number" name="phone" required class="inp" placeholder="Enter your Phone number"></div>
+                        <div class="flex-center flex-just-center"><label class="lab">Phone</label></div>
+                        <div class="size"><input type="number" name="phone" required class="inp" placeholder="Enter your Phone number"></div>
 
-                    <div class="flex-center flex-just-center"><label class="lab">Query</label></div>
-                    <div class="size"><textarea id="tarea" required name="query" rows="5" cols="30" placeholder="Enter your queries here"></textarea></div>
+                        <div class="flex-center flex-just-center"><label class="lab">Query</label></div>
+                        <div class="size"><textarea id="tarea" required name="query" rows="5" cols="30" placeholder="Enter your queries here"></textarea></div>
                     </div>
                     <div class="flex-center flex-just-center"><input type="submit" class="sub"></div>
                 </form>
@@ -102,6 +103,40 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    
+    <script>
+    $(document).ready(function() {
+        $('#callbackForm').on('submit', function(e) {
+            let valid = true;
+            let name = $('input[name="name"]').val().trim();
+            let email = $('input[name="email"]').val().trim();
+            let phone = $('input[name="phone"]').val().trim();
+            let query = $('textarea[name="query"]').val().trim();
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let phonePattern = /^[0-9]{10}$/;
+            let errorMsg = "";
+
+            if (name.length < 2) {
+                errorMsg += "Please enter a valid name.\n";
+                valid = false;
+            }
+            if (!emailPattern.test(email)) {
+                errorMsg += "Please enter a valid email address.\n";
+                valid = false;
+            }
+            if (!phonePattern.test(phone) || phone === "1234567890" || phone === "9876543210") {
+                errorMsg += "Please enter a valid phone number (not 1234567890 or 9876543210).\n";
+                valid = false;
+            }
+            if (query.length < 5) {
+                errorMsg += "Please enter your query (at least 5 characters).\n";
+                valid = false;
+            }
+            if (!valid) {
+                alert(errorMsg);
+                e.preventDefault();
+            }
+        });
+    });
+    </script>
 </body>
 </html>
