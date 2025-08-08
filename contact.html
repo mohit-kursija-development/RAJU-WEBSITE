@@ -143,18 +143,9 @@
                 valid = false;
             }
             if (!valid) {
-                alert(errorMsg);
+                alert(errorMsg + "\nIf you are unable to send your message, please call us at +91 9699792981.");
                 e.preventDefault();
-            } else {
-                // Show thank you div and hide form
-                e.preventDefault();
-                $('#callbackForm').hide();
-                $('#thankYouDiv').show();
-                setTimeout(function() {
-                    // location.reload();
-                    $('#callbackForm').submit();
-                }, 3000);
-            }
+            } // else: allow normal submission, formsubmit.co will handle redirect/thank you
         });
     });
         // Set footer year automatically
