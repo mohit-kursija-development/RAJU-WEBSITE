@@ -115,8 +115,8 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: blue;
-    font-size: 1.5rem;
+    /* color: blue; */
+    font-size: 1.2rem;
     text-align: justify;
 }
 label , input{
