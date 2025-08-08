@@ -76,6 +76,10 @@
                 <p class="font-blue">Dhobi Ghat Rd </p>
                 <p class="font-blue">Ulhasnagar 421002 </p>
             </div>
+            <div id="thankYouDiv" style="display:none; text-align:center; padding:30px; border:2px solid #007bff; border-radius:10px; background:#f8f9fa; margin-top:20px;">
+                <h2>Thank you for contacting us!</h2>
+                <p>We will revert to you in minimum time possible.</p>
+            </div>
         </div>
     </div>
 
@@ -93,7 +97,7 @@
             </a>
         </div>
         <div class="message">
-            <p class="footer-message"> &#169; RAJU ENTERPRISES 2024</p>
+            <p class="footer-message"> &#169; RAJU ENTERPRISES <span id="footerYear"></span></p>
             <p class="footer-message">Website by mkursijadeveloper@gmail.com</p>
         </div>
         <div class="broch">
@@ -112,19 +116,26 @@
             let phone = $('input[name="phone"]').val().trim();
             let query = $('textarea[name="query"]').val().trim();
             let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let namePattern = /^[A-Za-z ]+$/;
             let phonePattern = /^[0-9]{10}$/;
             let errorMsg = "";
 
             if (name.length < 2) {
-                errorMsg += "Please enter a valid name.\n";
+                errorMsg += "Name must be at least 2 characters long.\n";
+                valid = false;
+            } else if (!namePattern.test(name)) {
+                errorMsg += "Name can only contain alphabets and spaces.\n";
                 valid = false;
             }
             if (!emailPattern.test(email)) {
-                errorMsg += "Please enter a valid email address.\n";
+                errorMsg += "Please enter a valid email address (e.g. example@email.com).\n";
                 valid = false;
             }
-            if (!phonePattern.test(phone) || phone === "1234567890" || phone === "9876543210") {
-                errorMsg += "Please enter a valid phone number (not 1234567890 or 9876543210).\n";
+            if (!phonePattern.test(phone)) {
+                errorMsg += "Phone number must be exactly 10 digits and contain numbers only.\n";
+                valid = false;
+            } else if (phone === "1234567890" || phone === "9876543210") {
+                errorMsg += "This phone number is not allowed.\n";
                 valid = false;
             }
             if (query.length < 5) {
@@ -134,9 +145,23 @@
             if (!valid) {
                 alert(errorMsg);
                 e.preventDefault();
+            } else {
+                // Show thank you div and hide form
+                e.preventDefault();
+                $('#callbackForm').hide();
+                $('#thankYouDiv').show();
+                setTimeout(function() {
+                    location.reload();
+                }, 3000);
             }
         });
     });
+        // Set footer year automatically
+        document.addEventListener('DOMContentLoaded', function() {
+            var year = new Date().getFullYear();
+            var yearSpan = document.getElementById('footerYear');
+            if (yearSpan) yearSpan.textContent = year;
+        });
     </script>
 </body>
 </html>
