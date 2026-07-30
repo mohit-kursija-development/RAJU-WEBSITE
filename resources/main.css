@@ -83,6 +83,20 @@ button, input, textarea, select { font: inherit; color: inherit; }
     border-radius: 6px;
 }
 
+/* keyboard skip link — visually hidden until focused */
+.skip-link {
+    position: absolute;
+    top: 0; left: -9999px;
+    z-index: 200;
+    padding: 13px 22px;
+    border-radius: 0 0 var(--r-sm) 0;
+    background: var(--brand-deep);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+}
+.skip-link:focus { left: 0; color: #fff; }
+
 /* --------------------------------------------------------- layout helpers */
 .shell {
     width: 100%;
@@ -787,6 +801,57 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .pcard .btn { margin-top: 22px; }
 
 /* ==========================================================================
+   FAQ  (native <details> — content stays in the DOM so it is crawlable)
+   ========================================================================== */
+.faq { max-width: 860px; margin-inline: auto; display: grid; gap: 12px; }
+
+.faq-item {
+    border-radius: var(--r);
+    background: var(--surface);
+    box-shadow: var(--sh-sm);
+    transition: box-shadow .35s var(--ease);
+}
+.faq-item[open] { box-shadow: var(--sh); }
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    list-style: none;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    transition: color .25s var(--ease);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--brand-deep); }
+
+.faq-item summary::after {
+    content: '';
+    flex: none;
+    margin-left: auto;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--brand-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310687c' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center / 13px no-repeat;
+    transition: transform .35s var(--ease), background-color .25s var(--ease);
+}
+.faq-item[open] summary::after { transform: rotate(135deg); }
+
+.faq-answer {
+    padding: 0 24px 22px;
+    font-size: .97rem;
+}
+.faq-answer a { font-weight: 600; }
+
+@media (max-width: 640px) {
+    .faq-item summary { padding: 17px 18px; font-size: .99rem; gap: 12px; }
+    .faq-answer { padding: 0 18px 18px; font-size: .93rem; }
+}
+
+/* ==========================================================================
    TIMELINE / STORY
    ========================================================================== */
 .timeline { position: relative; display: grid; gap: 26px; padding-left: 34px; }
@@ -1016,7 +1081,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
     letter-spacing: .03em;
 }
 .site-footer p { font-size: .94rem; }
-.footer-col h4 {
+.footer-col h3 {
     margin-bottom: 18px;
     color: #fff;
     font-size: .82rem;
